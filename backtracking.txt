@@ -1,0 +1,33 @@
+Clearly explain the purpose of backtracking, and how it works. Give a very small example of 
+a backtracking problem (2 or 3 elements) and show how backtracking can solve it.
+
+
+Backtracking is used to search through all possible configurations of a search space in order to
+find a solution to a given problem . It builds possible solutions but also backtracts as soon as we
+realise the configuration cannot lead to a valid solution. Backtracking works by using a decision
+tree , which represtns all possbile choices availible at each step of the problem , and if ever
+the current path is determined not to ever give a valid solution that path is abadoned
+
+One small example of a backtracking problem is a problem to find all possible permutations
+of a collection of integers. (backtracking is espically useful in combinortoiral problems)
+
+eg: nums = [1,2,3]
+
+output = [1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,2,1], [3,1,2]
+
+For this problem we can use backtracking to build the permutations. 
+
+Start with an empty solution and the full set of choices [1, 2, 3].
+Choose the first element (say 1) and add it to the solution. Now the partial solution is [1], 
+and remaining choices are [2, 3].
+Choose the next element from the remaining choices (say 2). Now the partial solution is [1, 2], 
+and remaining choices are [3].
+Choose the last remaining element (3). Now the solution is [1, 2, 3]. This is a valid permutation, 
+so add it to the list of complete solutions.
+
+Backtrack: Remove the last element (3) from the solution and explore other choices. 
+Now the solution is [1, 2] again, and the choices are [3], but since there are no more choices 
+to replace 3, backtrack again.
+Backtrack again and replace 2 with 3. Now the solution is [1, 3], and the remaining choice is [2].
+Add 2 to the solution. Now the solution is [1, 3, 2]. This is another valid permutation.
+Continue this process until all permutations are generated.
